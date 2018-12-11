@@ -45,6 +45,11 @@ public class MainActivity extends AppCompatActivity {
                     student.setUniversity(etUniversity.getText().toString().trim());
 
                     mydb.insertData(student);
+
+                    etName.setText("");
+                    etSurname.setText("");
+                    etGroup.setText("");
+                    etUniversity.setText("");
                     Toast.makeText(MainActivity.this, "New student added", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -61,11 +66,11 @@ public class MainActivity extends AppCompatActivity {
         btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (list.size() > 0) {
+                try {
                     mydb.deleteAll();
                     Toast.makeText(MainActivity.this, "Data removed", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(MainActivity.this, "Database is empty", Toast.LENGTH_SHORT).show();
+                } catch (Exception e){
+                    Toast.makeText(MainActivity.this, "Data is empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });
