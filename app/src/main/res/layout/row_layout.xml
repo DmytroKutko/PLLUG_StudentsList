@@ -61,7 +61,7 @@
                     android:id="@+id/tvGroup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="0dp"
                     android:textSize="18sp" />
 
             </LinearLayout>
