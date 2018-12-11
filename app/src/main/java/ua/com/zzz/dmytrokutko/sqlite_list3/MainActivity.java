@@ -36,7 +36,9 @@ public class MainActivity extends AppCompatActivity {
                         etSurname.getText().toString().trim().equals("") ||
                         etGroup.getText().toString().trim().equals("") ||
                         etUniversity.getText().toString().trim().equals("")) {
+
                     Toast.makeText(MainActivity.this, "Enter all fields", Toast.LENGTH_SHORT).show();
+
                 } else {
                     Student student = new Student();
                     student.setName(etName.getText().toString().trim());
@@ -50,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                     etSurname.setText("");
                     etGroup.setText("");
                     etUniversity.setText("");
+
                     Toast.makeText(MainActivity.this, "New student added", Toast.LENGTH_SHORT).show();
                 }
             }

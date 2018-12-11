@@ -1,4 +1,4 @@
-package ua.com.zzz.dmytrokutko.sqlite_list3;
+package ua.com.zzz.dmytrokutko.sqlite_list3.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import ua.com.zzz.dmytrokutko.sqlite_list3.R;
 import ua.com.zzz.dmytrokutko.sqlite_list3.model.Student;
 
 
