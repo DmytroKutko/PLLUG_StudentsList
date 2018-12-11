@@ -26,6 +26,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:text="Name: "
                     android:textSize="18sp" />
 
@@ -54,6 +55,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:text="Group: "
                     android:textSize="18sp" />
 
@@ -74,6 +76,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:text="University: "
                     android:textSize="18sp" />
 
