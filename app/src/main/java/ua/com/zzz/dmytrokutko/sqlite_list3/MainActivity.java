@@ -16,7 +16,7 @@ import ua.com.zzz.dmytrokutko.sqlite_list3.model.Student;
 public class MainActivity extends AppCompatActivity {
 
     EditText etName, etSurname, etGroup, etUniversity;
-    Button btnAdd, btnList;
+    Button btnAdd, btnList, btnDel;
 
     MyDatabase mydb;
     ArrayList<Student> list;
@@ -32,25 +32,41 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Student student = new Student();
-                student.setName(etName.getText().toString().trim());
-                student.setSurname(etSurname.getText().toString().trim());
-                student.setGroup(etGroup.getText().toString().trim());
-                student.setUniversity(etUniversity.getText().toString().trim());
+                if (etName.getText().toString().trim().equals("") ||
+                        etSurname.getText().toString().trim().equals("") ||
+                        etGroup.getText().toString().trim().equals("") ||
+                        etUniversity.getText().toString().trim().equals("")) {
+                    Toast.makeText(MainActivity.this, "Enter all fields", Toast.LENGTH_SHORT).show();
+                } else {
+                    Student student = new Student();
+                    student.setName(etName.getText().toString().trim());
+                    student.setSurname(etSurname.getText().toString().trim());
+                    student.setGroup(etGroup.getText().toString().trim());
+                    student.setUniversity(etUniversity.getText().toString().trim());
 
-                mydb.insertData(student);
-                Toast.makeText(MainActivity.this, "New student added", Toast.LENGTH_SHORT).show();
-
+                    mydb.insertData(student);
+                    Toast.makeText(MainActivity.this, "New student added", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         btnList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(MainActivity.this, StudentsList.class);
                 startActivity(intent);
+            }
+        });
 
+        btnDel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (list.size() > 0) {
+                    mydb.deleteAll();
+                    Toast.makeText(MainActivity.this, "Data removed", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Database is empty", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -63,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         etUniversity = findViewById(R.id.etUniversity);
         btnAdd = findViewById(R.id.btnAdd);
         btnList = findViewById(R.id.btnList);
+        btnDel = findViewById(R.id.btnDel);
 
         mydb = new MyDatabase(MainActivity.this);
         list = new ArrayList<>();
